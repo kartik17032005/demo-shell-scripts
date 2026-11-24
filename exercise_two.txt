@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+
+echo "====================Creation of the user===================="
+
+read -p "Enter the username" username
+read -p "Enter the password" password
+
+sudo useradd -m "$username"
+
+echo -e "$password\n$password" | sudo passwd "$username"
+
+
+echo "====================Creation of the user completred========="
+
+echo "====================Deletion of the user processing========="
+
+sudo userdel "$username"
+
+echo "====================User Deleted============================"
+
+if [ $(cat /etc/passwd | grep $username | wc | awk '{print $1}') == 0 ];
+then
+
+      echo "as wc is 0, the username is delted"
+else 
+	echo "the user is not deleted"
+fi
