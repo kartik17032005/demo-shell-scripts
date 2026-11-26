@@ -1,5 +1,9 @@
 #!/bin/bash
 
+<<help
+this is a shell script to take backups and can also be used with cron
+help
+
 
 <<info
 This shello script will take periodic backups
